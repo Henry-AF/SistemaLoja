@@ -1,0 +1,33 @@
+<%- include ('partials/navbar.ejs') %>
+    <%- include ('partials/header.ejs') %>
+
+        <h2 class="container mt-5">Produtos!</h2>
+
+        <div class="container mt-5">
+
+            <h4>Tabela de Produtos</h4>
+            <table class="table">
+                <tr>
+                    <th class="col">Nome do Produto</th>
+                    <th class="col">Preço</th>
+                    <th class="col">Categoria</th>
+                </tr>
+
+                <% produtos.forEach(produtos => { %>
+                    <tr>
+                        <td>
+                            <%= produtos.nomeProduto %>
+                        </td>
+                        <td>
+                            <%= produtos.preco %>
+                        </td>
+                        <td>
+                            <%= produtos.categoria %>
+                        </td>
+                    </tr>
+                <% }) %>
+                
+            </table>
+        </div>
+
+        <%- include ('partials/footer.ejs') %>

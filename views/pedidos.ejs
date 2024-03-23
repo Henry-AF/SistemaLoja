@@ -1,0 +1,24 @@
+<%- include ('partials/navbar.ejs') %>
+<%- include ('partials/header.ejs') %>
+
+<h2 class="container mt-5">Pedidos!</h2>
+
+<div class="container mt-5">
+
+    <h4>Tabela de pedidos</h4>
+    <table class="table">
+        <tr>
+            <th class="col">Número </th>
+            <th class="col">Valor Total </th>
+        </tr>
+
+        <% pedidos.forEach(pedidos => { %>
+            <tr>
+                <td><%= pedidos.numpedido %></td>
+                <td><%= pedidos.valorTotal %></td>
+            </tr>
+        <% }) %>
+    </table>
+</div>
+
+<%- include ('partials/footer.ejs') %>
