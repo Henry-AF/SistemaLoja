@@ -1,26 +1,56 @@
 <%- include ('partials/navbar.ejs') %>
-<%- include ('partials/header.ejs') %>
+    <%- include ('partials/header.ejs') %>
 
-<h2 class="container mt-5">CLientes!</h2>
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Buscar Dados Cliente</h1>
+                </div>
+                <div class="card-body">
+                    <form action="/clientes/new" method="POST">
+                        <label>Nome do Cliente</label>
+                        <input type="text" name="nome" id="nome" placeholder="Digite o Nome" class="form-control m-2" required>
+                        <label>CPF do Cliente</label>
+                        <input type="text" name="cpf" id="cpf" placeholder="Digite o CPF" class="form-control m-2" required>
+                        <label>Endereco do Cliente</label>
+                        <input type="text" name="endereco" id="endereco" placeholder="Digite o Endereço" class="form-control m-2" required>
+                        <button class="btn btn-primary mt-2">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
 
-<div class="container mt-5">
-    <h4>Tabela de clientes </h4>
-            <table class="table">
-                <tr>
-                    <th class="col">Nome </th>
-                    <th class="col">CPF </th>
-                    <th class="col">Endereço </th>
-                </tr>
-                <% clientes.forEach(clientes => { %>
-                <tr>
-                        <td><%= clientes.Nome %></td>
-                        <td><%= clientes.CPF %></td>
-                        <td><%= clientes.Endereco %></td>
-                    <% }) %>
-
-                </tr>
-                    
-            </table>
-</div>
+        <!---Mostrar Clientes Cadastrados---->
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h1>Clientes Cadastrados</h1>
+                </div>
+                <div class="card-body">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="padding-right: 20px;">Nome:</th>
+                                <th style="padding-right: 20px;">CPF:</th>
+                                <th style="padding-right: 20px;">Endereço:</th>
+                                <th class="m-3" colspan="2">Ações:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <% clientes.forEach(cliente => { %>
+                            <tr>
+                                <td><%= cliente.nome %></td>
+                                <td><%= cliente.cpf %></td>
+                                <td><%= cliente.endereco %></td>
+                                <td><a href="" style="color: blue">Editar</a></td>
+                                <td><a href="" style="color: red">Apagar</a></td>
+                            </tr>
+                            <% }) %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
 
 <%- include ('partials/footer.ejs') %>
