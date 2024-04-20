@@ -30,12 +30,9 @@
             <table>
                 <thead>
                     <tr>
-                        <th></th>
-                        <th>Número: </th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        
+                        <th style="padding-right: 20px;">Número: </th>
+                       
                         <th>Valor: </th>
                     </tr>
                 </thead>
@@ -49,7 +46,9 @@
                                 <%= pedido.valor.toLocaleString('pt-br', {style: 'currency' , currency: 'BRL' })
                                     %>
                             </td>
-                        </tr>
+                            <td><a href="/pedidos/edit/<%= pedido._id %>" class="btn btn-secondary m-2">Editar</a></td>
+                            <td><a href="/pedidos/delete/<%= pedido._id %>" class="btn btn-danger" onclick="return confirm('Deseja excluir o registro?')">Apagar</a></td>
+                            </tr>
                         <% }) %>
                 </tbody>
             </table>

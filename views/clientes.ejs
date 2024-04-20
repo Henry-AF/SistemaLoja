@@ -33,18 +33,17 @@
                                 <th style="padding-right: 20px;">Nome:</th>
                                 <th style="padding-right: 20px;">CPF:</th>
                                 <th style="padding-right: 20px;">Endereço:</th>
-                                <th class="m-3" colspan="2">Ações:</th>
+                                <th class="m-5" colspan="2">Ações:</th>
                             </tr>
                         </thead>
                         <tbody>
                             <% clientes.forEach(cliente => { %>
                             <tr>
-                                <td><%= cliente.nome %></td>
-                                <td><%= cliente.cpf %></td>
-                                <td><%= cliente.endereco %></td>
-                                <td><a href="" style="color: blue">Editar</a></td>
-                                <td><a href="" style="color: red">Apagar</a></td>
-                            </tr>
+                                <td style="padding-right: 20px;"><%= cliente.nome %></td>
+                                <td style="padding-right: 20px;"><%= cliente.cpf %></td>
+                                <td style="padding-right: 20px;"><%= cliente.endereco %></td>
+                                <td><a href="/edit/<%= cliente._id %>" class="btn btn-secondary m-2">Editar</a></td>
+                                <td><a href="/delete/<%= cliente._id %>" class="btn btn-danger" onclick="return confirm('Deseja excluir o registro?')">Apagar</a></td>
                             <% }) %>
                         </tbody>
                     </table>
@@ -52,5 +51,5 @@
             </div>
         </div>
         
-
+        
 <%- include ('partials/footer.ejs') %>

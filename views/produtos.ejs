@@ -36,13 +36,9 @@
                         <td></td>
                         
                         <td>Preço</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                         <td>Categoria</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        
                     </tr>
                 </thead>
 
@@ -54,11 +50,11 @@
                             <td></td>
                             
                             <td><%= produto.preco %></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            
                             <td><%= produto.categoria %></td>
-
+                            <td><a href="produto/edit/<%= produto._id %>" class="btn btn-secondary m-2">Editar</a></td>
+                            <td><a href="produtos/delete/<%= produto._id %>" class="btn btn-danger" onclick="return confirm('Deseja excluir o registro?')">Apagar</a></td>
+                       
                         </tr>
 
                     <% }) %>

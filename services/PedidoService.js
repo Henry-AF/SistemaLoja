@@ -19,6 +19,30 @@ class PedidoService{
         })
         novoPedido.save()
     }
+
+    //Update 
+    Update(id, numero, valor) {
+        Pedido.findByIdAndUpdate(id, {
+            numero : numero,
+            valor : valor
+        }) .then(() => {
+            console.log(`Os dados do pedido id: ${id} foram alteradas`)
+        })
+    }
+
+    //Delete 
+    Delete(id) {
+        Pedido.findByIdAndDelete(id).then(() => {
+            console.log(`Os dados do pedido: ${id}, foram alterados`)
+        }).catch(err => {
+            console.log(err)
+        })
+    }
+    
+    SelectOne(id){
+        const pedido = Pedido.findOne({_id : id})
+        return pedido
+    }
 }
 
 export default new PedidoService()
